@@ -22,23 +22,43 @@ type Node struct {
 // Text writes escaped text.
 func Text(text string) func(*Node) {
 	return func(n *Node) {
+		n.writeIndent()
 		n.write(html.EscapeString(text))
+
+		if n.DevMode {
+			n.write("\n")
+		}
 	}
 }
 
 // Textf writes formatted escaped text.
 func Textf(format string, args ...any) func(*Node) {
 	return func(n *Node) {
+		n.writeIndent()
 		t := fmt.Sprintf(format, args...)
 		n.write(html.EscapeString(t))
+
+		if n.DevMode {
+			n.write("\n")
+		}
 	}
 }
 
 // Raw writes unescaped HTML. Use with caution.
 func Raw(raw string) func(*Node) {
 	return func(n *Node) {
+		n.writeIndent()
 		n.write(raw)
+
+		if n.DevMode {
+			n.write("\n")
+		}
 	}
+}
+
+// Error returns the write error if any occurred during rendering.
+func Error(n *Node) error {
+	return n.err
 }
 
 // WrapEach intercepts a function that renders multiple sibling elements and wraps each one
@@ -65,19 +85,13 @@ func (n *Node) el(tag string, attr Attr, children ...func(*Node)) {
 		return
 	}
 
-	if n.DevMode {
-		n.writeIndent()
-	}
-
+	n.writeIndent()
 	n.write("<" + tag)
 	if attr != nil {
 		attrs := attr.Attributes()
 		if attrs != "" {
 			n.write(" " + attrs)
 		}
-	}
-	if n.DevMode {
-		n.write(fmt.Sprintf(` data-node="%s"`, tag))
 	}
 
 	if isVoidTag(tag) {
@@ -121,11 +135,6 @@ func (n *Node) writeIndent() {
 	if n.DevMode {
 		n.write(strings.Repeat("  ", n.indent))
 	}
-}
-
-// Err returns the write error if any occurred during rendering.
-func (n *Node) Err() error {
-	return n.err
 }
 
 // HTML5 void tags

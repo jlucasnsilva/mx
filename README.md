@@ -105,7 +105,7 @@ assert.Contains(t, b.String(), "<div")
 ## 🪵 Debugging / Error Handling
 
 ```go
-if err := node.Err(); err != nil {
+if err := mx.Error(node); err != nil {
 	log.Println("render error:", err)
 }
 ```

@@ -61,11 +61,19 @@ func (n N) Attributes() string {
 		if i > 0 {
 			b.WriteByte(' ')
 		}
-		b.WriteString(k)
 		if isVoidAttr(k) {
 			i++
+			ok := false
+			for _, flag := range conds {
+				ok = ok || flag
+			}
+			if ok {
+				b.WriteString(k)
+			}
 			continue
 		}
+
+		b.WriteString(k)
 		var vals []string
 		for val, ok := range conds {
 			if ok {
