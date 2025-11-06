@@ -80,7 +80,7 @@ func TestAttr(t *testing.T) {
 				expected: `class="input" type="number" placeholder="Hello, world!"`,
 			},
 			{
-				attr:     Class("container", "responsive", "red"),
+				attr:     S(`class="container responsive red"`),
 				expected: `class="container responsive red"`,
 			},
 		}

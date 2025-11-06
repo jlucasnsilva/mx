@@ -100,11 +100,6 @@ func (s Slice) Attributes() string {
 	return b.String()
 }
 
-// Class creates a class attribute from a list of strings.
-func Class(classes ...string) Attr {
-	return M{"class": strings.Join(classes, " ")}
-}
-
 // RegisterVoidAttrs registers attributes that are treated as void.
 func RegisterVoidAttrs(attrs ...string) {
 	for _, a := range attrs {

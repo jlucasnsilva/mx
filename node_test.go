@@ -75,10 +75,10 @@ func TestNode(t *testing.T) {
 </div>
 `,
 			component: func(n *Node) {
-				n.Div(Class("grid"), func(n *Node) {
-					n.Div(Class("grid-item"), Text("Hello, world!"))
-					n.Div(Class("grid-item"), Textf("Hello, world!"))
-					n.Div(Class("grid-item"), Raw("Hello, world!"))
+				n.Div(S(`class="grid"`), func(n *Node) {
+					n.Div(S(`class="grid-item"`), Text("Hello, world!"))
+					n.Div(S(`class="grid-item"`), Textf("Hello, world!"))
+					n.Div(S(`class="grid-item"`), Raw("Hello, world!"))
 				})
 			},
 		},
@@ -86,11 +86,11 @@ func TestNode(t *testing.T) {
 			indent:   false,
 			expected: `<div class="grid"><div class="grid-item"><p>Hello, world!</p></div><div class="grid-item"><p>Hello, world!</p></div></div>`,
 			component: func(n *Node) {
-				n.Div(Class("grid"), func(n *Node) {
+				n.Div(S(`class="grid"`), func(n *Node) {
 					WrapEach(
 						n,
 						func(n *Node, content func(*Node)) {
-							n.Div(Class("grid-item"), content)
+							n.Div(S(`class="grid-item"`), content)
 						},
 						func(n *Node) {
 							n.P(nil, Text("Hello, world!"))
