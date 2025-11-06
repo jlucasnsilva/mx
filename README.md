@@ -16,7 +16,7 @@ func HomePage(n *mx.Node) {
 - ✅ Safe HTML escaping by default
 - 🧱 Typed HTML elements
 - 🧩 Composable components (just Go functions)
-- 🧪 Dev mode: pretty output + auto-profiling with `data-node`
+- 🧪 Dev mode: pretty output
 - 🎯 Zero dependencies
 
 ---
@@ -35,7 +35,7 @@ go get github.com/jlucasnsilva/mx
 
 ```go
 func HelloPage(n *mx.Node) {
-	n.Div(mx.Class("greeting"), func(n *mx.Node) {
+	n.Div(mx.S(`class="greeting"`), func(n *mx.Node) {
 		n.H1(nil, mx.Text("Hello, world!"))
 	})
 }
@@ -47,7 +47,7 @@ func HelloPage(n *mx.Node) {
 func handler(w http.ResponseWriter, r *http.Request) {
 	node := &mx.Node{Writer: w}
 	HelloPage(node)
-	if err := node.Err(); err != nil {
+	if err := mx.Error(node); err != nil {
 		http.Error(w, err.Error(), 500)
 	}
 }
@@ -65,12 +65,10 @@ HelloPage(node)
 Outputs:
 
 ```html
-<div class="greeting" data-node="div">
-  <h1 data-node="h1">Hello, world!</h1>
+<div class="greeting">
+  <h1>Hello, world!</h1>
 </div>
 ```
-
-Use `data-node` attributes for tracing or Chrome dev tools filtering.
 
 ---
 
@@ -79,7 +77,7 @@ Use `data-node` attributes for tracing or Chrome dev tools filtering.
 ```go
 func Card(title string, body func(*mx.Node)) func(*mx.Node) {
 	return func(n *mx.Node) {
-		n.Div(mx.Class("card"), func(n *mx.Node) {
+		n.Div(mx.S(`class="card"`), func(n *mx.Node) {
 			n.H2(nil, mx.Text(title))
 			body(n)
 		})
@@ -118,9 +116,9 @@ Wrap each child node in a component-defined wrapper:
 
 ```go
 func Grid(n *mx.Node, children func(*mx.Node)) {
-	n.Div(mx.Class("grid"), func(n *mx.Node) {
+	n.Div(mx.S(`class="grid"`), func(n *mx.Node) {
 		mx.WrapEach(n, func(n *mx.Node, content func(*mx.Node)) {
-			n.Div(mx.Class("grid-item"), content)
+			n.Div(mx.S(`class="grid-item"`), content)
 		}, children)
 	})
 }
