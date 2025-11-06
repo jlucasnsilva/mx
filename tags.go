@@ -12,7 +12,7 @@ func (n *Node) B(attr Attr, children ...func(*Node))          { n.el("b", attr, 
 func (n *Node) Base(attr Attr)                                { n.el("base", attr) }
 func (n *Node) Bdi(attr Attr, children ...func(*Node))        { n.el("bdi", attr, children...) }
 func (n *Node) Bdo(attr Attr, children ...func(*Node))        { n.el("bdo", attr, children...) }
-func (n *Node) Blockquote(attr Attr, children ...func(*Node)) { n.el("blockquote", attr, children...) }
+func (n *Node) BlockQuote(attr Attr, children ...func(*Node)) { n.el("blockquote", attr, children...) }
 func (n *Node) Body(attr Attr, children ...func(*Node))       { n.el("body", attr, children...) }
 func (n *Node) Br(attr Attr)                                  { n.el("br", attr) }
 func (n *Node) Button(attr Attr, children ...func(*Node))     { n.el("button", attr, children...) }
@@ -21,9 +21,9 @@ func (n *Node) Caption(attr Attr, children ...func(*Node))    { n.el("caption", 
 func (n *Node) Cite(attr Attr, children ...func(*Node))       { n.el("cite", attr, children...) }
 func (n *Node) Code(attr Attr, children ...func(*Node))       { n.el("code", attr, children...) }
 func (n *Node) Col(attr Attr)                                 { n.el("col", attr) }
-func (n *Node) Colgroup(attr Attr, children ...func(*Node))   { n.el("colgroup", attr, children...) }
+func (n *Node) ColGroup(attr Attr, children ...func(*Node))   { n.el("colgroup", attr, children...) }
 func (n *Node) Data(attr Attr, children ...func(*Node))       { n.el("data", attr, children...) }
-func (n *Node) Datalist(attr Attr, children ...func(*Node))   { n.el("datalist", attr, children...) }
+func (n *Node) DataList(attr Attr, children ...func(*Node))   { n.el("datalist", attr, children...) }
 func (n *Node) Dd(attr Attr, children ...func(*Node))         { n.el("dd", attr, children...) }
 func (n *Node) Del(attr Attr, children ...func(*Node))        { n.el("del", attr, children...) }
 func (n *Node) Details(attr Attr, children ...func(*Node))    { n.el("details", attr, children...) }
@@ -34,8 +34,8 @@ func (n *Node) Dl(attr Attr, children ...func(*Node))         { n.el("dl", attr,
 func (n *Node) Dt(attr Attr, children ...func(*Node))         { n.el("dt", attr, children...) }
 func (n *Node) Em(attr Attr, children ...func(*Node))         { n.el("em", attr, children...) }
 func (n *Node) Embed(attr Attr)                               { n.el("embed", attr) }
-func (n *Node) Fieldset(attr Attr, children ...func(*Node))   { n.el("fieldset", attr, children...) }
-func (n *Node) Figcaption(attr Attr, children ...func(*Node)) { n.el("figcaption", attr, children...) }
+func (n *Node) FieldSet(attr Attr, children ...func(*Node))   { n.el("fieldset", attr, children...) }
+func (n *Node) FigCaption(attr Attr, children ...func(*Node)) { n.el("figcaption", attr, children...) }
 func (n *Node) Figure(attr Attr, children ...func(*Node))     { n.el("figure", attr, children...) }
 func (n *Node) Footer(attr Attr, children ...func(*Node))     { n.el("footer", attr, children...) }
 func (n *Node) Form(attr Attr, children ...func(*Node))       { n.el("form", attr, children...) }
@@ -48,9 +48,9 @@ func (n *Node) H6(attr Attr, children ...func(*Node))         { n.el("h6", attr,
 func (n *Node) Head(attr Attr, children ...func(*Node))       { n.el("head", attr, children...) }
 func (n *Node) Header(attr Attr, children ...func(*Node))     { n.el("header", attr, children...) }
 func (n *Node) Hr(attr Attr)                                  { n.el("hr", attr) }
-func (n *Node) Html(attr Attr, children ...func(*Node))       { n.el("html", attr, children...) }
+func (n *Node) HTML(attr Attr, children ...func(*Node))       { n.el("html", attr, children...) }
 func (n *Node) I(attr Attr, children ...func(*Node))          { n.el("i", attr, children...) }
-func (n *Node) Iframe(attr Attr, children ...func(*Node))     { n.el("iframe", attr, children...) }
+func (n *Node) IFrame(attr Attr, children ...func(*Node))     { n.el("iframe", attr, children...) }
 func (n *Node) Img(attr Attr)                                 { n.el("img", attr) }
 func (n *Node) Input(attr Attr)                               { n.el("input", attr) }
 func (n *Node) Ins(attr Attr, children ...func(*Node))        { n.el("ins", attr, children...) }
@@ -65,10 +65,10 @@ func (n *Node) Mark(attr Attr, children ...func(*Node))       { n.el("mark", att
 func (n *Node) Meta(attr Attr)                                { n.el("meta", attr) }
 func (n *Node) Meter(attr Attr, children ...func(*Node))      { n.el("meter", attr, children...) }
 func (n *Node) Nav(attr Attr, children ...func(*Node))        { n.el("nav", attr, children...) }
-func (n *Node) Noscript(attr Attr, children ...func(*Node))   { n.el("noscript", attr, children...) }
+func (n *Node) NoScript(attr Attr, children ...func(*Node))   { n.el("noscript", attr, children...) }
 func (n *Node) Object(attr Attr, children ...func(*Node))     { n.el("object", attr, children...) }
 func (n *Node) Ol(attr Attr, children ...func(*Node))         { n.el("ol", attr, children...) }
-func (n *Node) Optgroup(attr Attr, children ...func(*Node))   { n.el("optgroup", attr, children...) }
+func (n *Node) OptGroup(attr Attr, children ...func(*Node))   { n.el("optgroup", attr, children...) }
 func (n *Node) Option(attr Attr, children ...func(*Node))     { n.el("option", attr, children...) }
 func (n *Node) Output(attr Attr, children ...func(*Node))     { n.el("output", attr, children...) }
 func (n *Node) P(attr Attr, children ...func(*Node))          { n.el("p", attr, children...) }
@@ -95,13 +95,13 @@ func (n *Node) Summary(attr Attr, children ...func(*Node))    { n.el("summary", 
 func (n *Node) Sup(attr Attr, children ...func(*Node))        { n.el("sup", attr, children...) }
 func (n *Node) SVG(attr Attr, children ...func(*Node))        { n.el("svg", attr, children...) }
 func (n *Node) Table(attr Attr, children ...func(*Node))      { n.el("table", attr, children...) }
-func (n *Node) Tbody(attr Attr, children ...func(*Node))      { n.el("tbody", attr, children...) }
+func (n *Node) TBody(attr Attr, children ...func(*Node))      { n.el("tbody", attr, children...) }
 func (n *Node) Td(attr Attr, children ...func(*Node))         { n.el("td", attr, children...) }
 func (n *Node) Template(attr Attr, children ...func(*Node))   { n.el("template", attr, children...) }
-func (n *Node) Textarea(attr Attr, children ...func(*Node))   { n.el("textarea", attr, children...) }
-func (n *Node) Tfoot(attr Attr, children ...func(*Node))      { n.el("tfoot", attr, children...) }
+func (n *Node) TextArea(attr Attr, children ...func(*Node))   { n.el("textarea", attr, children...) }
+func (n *Node) TFoot(attr Attr, children ...func(*Node))      { n.el("tfoot", attr, children...) }
 func (n *Node) Th(attr Attr, children ...func(*Node))         { n.el("th", attr, children...) }
-func (n *Node) Thead(attr Attr, children ...func(*Node))      { n.el("thead", attr, children...) }
+func (n *Node) THead(attr Attr, children ...func(*Node))      { n.el("thead", attr, children...) }
 func (n *Node) Time(attr Attr, children ...func(*Node))       { n.el("time", attr, children...) }
 func (n *Node) Title(attr Attr, children ...func(*Node))      { n.el("title", attr, children...) }
 func (n *Node) Tr(attr Attr, children ...func(*Node))         { n.el("tr", attr, children...) }
